@@ -8,7 +8,7 @@
   * C# dev: UnitTests
 * Currently js contractor in Poznań, Poland
 
-### What is AngularJs
+### Who are you?
 
 * Who was already working with angular?
 * Who likes having unit tests?
@@ -78,7 +78,7 @@
 * and this little guy was purpouse fully removed from html
 
 ```html
-<blink></blink>
+<blink>CLICK ME!</blink>
 ```
 
 ### Back to 90's?
@@ -101,8 +101,8 @@ All is safly separeted into scopes.
 * cool tool to creating code
 * push changes form server to broswer - no refreshing
 
-### Switching to AngularJs
-* Is possible:)
+### How to start with angular?
+* Is possible to use in legacy projects
 * Goes well allong with jquery
 * There is a project to rewrite bootstrap js to angular directives [angular-ui-bootstrap] [2]
 * They say it is possible to use it along with require.js [angular-require-js] [3]
