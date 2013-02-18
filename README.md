@@ -62,22 +62,28 @@
 
 ### html validator are going to hate it
 * those tags are invalide
+
 ```html
 <tabs>
    <pane title="Localization">
 ```
+
 * those atributs are invalide
+
 ```html
 <li ng-repeat="todo in todos">
 <input type="text" ng-model="todoText" />
 ```
+
 * and this little guy was purpouse fully removed from html
+
 ```html
 <blink></blink>
 ```
 
 ### Back to 90's?
 * angular uses proprietery tags, allow us to create own, and expect us to write stuff like this:
+
 ```html
 <form ng-submit="addTodo()">
 <button ng-click="fireAlert()">
