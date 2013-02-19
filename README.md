@@ -68,6 +68,7 @@ function TodoCtrl($scope, $log) {
 ### Dependency injection
 * increase testablity
 * nice sumarize interconnections between parts of aplication
+
 ```js
 $scope; // view model
 $log; // console: ie friendly
