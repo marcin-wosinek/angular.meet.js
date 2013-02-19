@@ -37,7 +37,7 @@
 * plain js models
 * dirty checking - but object.observer is comming
 
-```
+```js
 function TodoCtrl($scope, $log) {
   // use console log
   $log.log('Test');
@@ -68,25 +68,25 @@ function TodoCtrl($scope, $log) {
 ### Dependency injection
 * increase testablity
 * nice sumarize interconnections between parts of aplication
-```
-$scope - view model
-$log - console: ie friendly
-$window - testable window counter part
-$http - http requests
-and all our services
+```js
+$scope; // view model
+$log; // console: ie friendly
+$window; // testable window counter part
+$http; // http requests
+// and all our services
 ```
 
 ### Directives
 * tools to teach html new tricks
  * binding controller
 
-```
+```html
 <div ng-controller="ProductCtrl">
 ```
 
  * loops
 
-```
+```html
 <ul>
   <li ng-repeat="friend in friends">
     [{{$index + 1}}] {{friend.name}} who is {{friend.age}} yrs old.
@@ -96,14 +96,14 @@ and all our services
 
  * binding models
 
-```
+```html
 <input type="checkbox" ng-model="confirmed" ng-change="change()"
 ```
 
 * or bing back old ones
 
-```
-<blink></blink>
+```html
+<blink>Click me</blink>
 ```
 
 * No dom manipulation in controler!
@@ -112,19 +112,19 @@ and all our services
 * What we have in html, css now is in js as well
 * html: want paragraph?
 
-```
-<p></p>
+```html
+<p>Text</p>
 ```
 
 * css: want it red?
 
-```
+```css
 p { color: red}
 ```
 
 * js: what it bind to model - we are writing in pure html
 
-```
+```html
 <p>{{modelData}}</p>
 ```
 
@@ -133,7 +133,7 @@ p { color: red}
 * Directives
 * simple plain old js objects as models
 
-```
+```js
 //Code:
 function PasswordCtrl($scope) {
   $scope.password = '';
