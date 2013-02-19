@@ -38,7 +38,10 @@
 * dirty checking - but object.observer is comming
 
 ```
-function TodoCtrl($scope) {
+function TodoCtrl($scope, $log) {
+  // use console log
+  $log.log('Test');
+
   $scope.addTodo = function() {
     $scope.todos.push({text:$scope.todoText, done:false});
     $scope.todoText = '';
@@ -65,17 +68,65 @@ function TodoCtrl($scope) {
 ### Dependency injection
 * increase testablity
 * nice sumarize interconnections between parts of aplication
+```
+$scope - view model
+$log - console: ie friendly
+$window - testable window counter part
+$http - http requests
+and all our services
+```
 
 ### Directives
 * tools to teach html new tricks
  * binding controller
+
+```
+<div ng-controller="ProductCtrl">
+```
+
  * loops
+
+```
+<ul>
+  <li ng-repeat="friend in friends">
+    [{{$index + 1}}] {{friend.name}} who is {{friend.age}} yrs old.
+ </li>
+</ul>
+```
+
  * binding models
+
+```
+<input type="checkbox" ng-model="confirmed" ng-change="change()"
+```
+
 * or bing back old ones
-* No dom manipulation in controler
+
+```
+<blink></blink>
+```
+
+* No dom manipulation in controler!
 
 ### Declarative programming
 * What we have in html, css now is in js as well
+* html: want paragraph?
+
+```
+<p></p>
+```
+
+* css: want it red?
+
+```
+p { color: red}
+```
+
+* js: what it bind to model - we are writing in pure html
+
+```
+<p>{{modelData}}</p>
+```
 
 ### TESABILITY!
 * Dependency injection
