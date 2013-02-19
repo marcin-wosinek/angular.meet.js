@@ -57,6 +57,33 @@
 * Directives
 * simple plain old js objects as models
 
+```
+//Code:
+function PasswordCtrl($scope) {
+  $scope.password = '';
+  $scope.grade = function() {
+    var size = $scope.password.length;
+    if (size > 8) {
+      $scope.strength = 'strong';
+    }
+    else if (size > 3) {
+      $scope.strength = 'medium';
+    }
+    else {
+      $scope.strength = 'weak';
+    }
+  };
+}
+
+// test:
+var scope = {};
+
+var pc = new PasswordCtrl(scope);
+pc.password('abc');
+pc.grade();
+expect(scope.strength).toEqual('weak');
+```
+
 ### Doubt
 * for some even deal breakers
 
