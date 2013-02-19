@@ -96,6 +96,12 @@
 Will be native apis. Now we can get some of benefits with angular.
 All is safly separeted into scopes.
 
+### Shadow DOM
+* Used by browsers internally to create controls
+* Will expose the same featres to web devs
+* In working draft http://www.w3.org/TR/shadow-dom/
+* Nice overview http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/ 
+
 ### Yeoman
 * CLI
 * cool tool to creating code
