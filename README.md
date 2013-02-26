@@ -211,6 +211,18 @@ All is safly separeted into scopes.
 * cool tool to creating code
 * push changes form server to broswer - no refreshing
 
+### Testacular
+* Test runner
+* Runs tests in reall browsers
+* Works on linux, don't need graphic env
+* Build by angular team, all angular tests are on testacular
+* Works with jasmine, sinon
+
+### Want to give it a try?
+* I've prepared vbox for you with dev env
+* Full machine https://docs.google.com/folder/d/0Bzhquk4DfXAtYUhKNlJhb01jaEk/edit?usp=sharing - based on ubuntu server
+* Install script https://github.com/marcin-wosinek/angular-dev
+
 ### How to start with angular?
 * Is possible to use in legacy projects
 * Goes well allong with jquery
