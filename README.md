@@ -1,21 +1,21 @@
 ### AngularJs
-## apps.berlin.js 28 II February 2013
+## meet.js 27 lutego 2013
 
-### Who am I?
+### Kim jestem?
 * Marcin Wosinak
 * 5 years experience in IT
   * WebDev: Javascript
   * C# dev: UnitTests
 * Currently js contractor in Poznań, Poland
 
-### Who are you?
+### Wy?
 
 * Who was already working with angular?
 * Who likes having unit tests?
 * Who is using yeoman?
 * Who is going to ask questions?
 
-### What is AngularJs
+### Czym jest angular?
 
 * it's application framework
 * it's 29KB compressed and minified
@@ -25,7 +25,7 @@
 * no dependencies:
  * can use jQuery if available on loadtime
 
-### AngularJs Overview
+### AngularJs
 * MVVM [G+] [1]
 * Plain js object
 * Dependency injection
@@ -33,7 +33,7 @@
 * Directives
 * Declarative programming
 
-### MVVM architecture
+### Architektura MVVM
 * plain js models
 * dirty checking - but object.observer is comming
 
@@ -109,7 +109,7 @@ $http; // http requests
 
 * No dom manipulation in controler!
 
-### Declarative programming
+### Programowanie deklaratywne
 * What we have in html, css now is in js as well
 * html: want paragraph?
 
@@ -129,7 +129,7 @@ p { color: red}
 <p>{{modelData}}</p>
 ```
 
-### TESABILITY!
+### TESTOWALNOŚĆ!
 * Dependency injection
 * Directives
 * simple plain old js objects as models
@@ -161,10 +161,10 @@ pc.grade();
 expect(scope.strength).toEqual('weak');
 ```
 
-### Doubt
+### Wątpliwości
 * for some even deal breakers
 
-### html validator are going to hate it
+### Walidatorom się to nie spodoba
 * those tags are invalide
 
 ```html
@@ -185,7 +185,7 @@ expect(scope.strength).toEqual('weak');
 <blink>CLICK ME!</blink>
 ```
 
-### Back to 90's?
+### Powrót do lat 90?
 * angular uses proprietery tags, allow us to create own, and expect us to write stuff like this:
 
 ```html
@@ -193,7 +193,12 @@ expect(scope.strength).toEqual('weak');
 <button ng-click="fireAlert()">
 ```
 
-### No - it's our future
+### Błedne tagi
+* all directives: tags and attributes
+* for attributes there is data-\* or x-\* version 
+* tag directives needs shim for ie8
+
+### Nie - to nasza przyszłość
 * web components
 * shadow dom 
 
@@ -218,18 +223,21 @@ All is safly separeted into scopes.
 * Build by angular team, all angular tests are on testacular
 * Works with jasmine, sinon
 
-### Want to give it a try?
+### Chcecie sprawdzić?
 * I've prepared vbox for you with dev env
 * Full machine https://docs.google.com/folder/d/0Bzhquk4DfXAtYUhKNlJhb01jaEk/edit?usp=sharing - based on ubuntu server
 * Install script https://github.com/marcin-wosinek/angular-dev
 
-### How to start with angular?
+### Jak zacząc z angularem?
 * Is possible to use in legacy projects
 * Goes well allong with jquery
 * There is a project to rewrite bootstrap js to angular directives [angular-ui-bootstrap] [2]
 * They say it is possible to use it along with require.js [angular-require-js] [3]
 
-### How to catch me
+### Pytania?
+* If our css doesn't go well with ng-show and ng-hide give try with ui-if from angular-ui
+
+### Gdzie można mnie złapać
 * marcin.wosinek@gmail.com
 * \#marcin.wosinek
 * write up and links:
