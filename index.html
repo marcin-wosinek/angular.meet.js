@@ -1,0 +1,323 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Angular.meet.js by marcin-wosinek</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Angular.meet.js</h1>
+        <p></p>
+
+        <p class="view"><a href="https://github.com/marcin-wosinek/angular.meet.js">View the Project on GitHub <small>marcin-wosinek/angular.meet.js</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/marcin-wosinek/angular.meet.js/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/marcin-wosinek/angular.meet.js/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/marcin-wosinek/angular.meet.js">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>AngularJs</h3>
+
+<h2>meet.js 27 lutego 2013</h2>
+
+<h3>Kim jestem?</h3>
+
+<ul>
+<li>Marcin Wosinak</li>
+<li>5 lat doświadczenia w IT
+
+<ul>
+<li>WebDev: Javascript</li>
+<li>C# dev: UnitTests</li>
+</ul>
+</li>
+<li>Aktualnie kontraktor w Roche</li>
+</ul><h3>Wy?</h3>
+
+<ul>
+<li>Kto już pracował z angularem?</li>
+<li>Kto lubi unit testy?</li>
+<li>Kto używa yeomana?</li>
+</ul><h3>Czym jest angular?</h3>
+
+<ul>
+<li>framework aplikacji</li>
+<li>29KB zminimalizowany i spakowany
+
+<ul>
+<li>backbone: 19KB (z underscore &amp; backbone)</li>
+<li>backbone: 32KB (z lodash &amp; jQuery)</li>
+<li>ember: 49KB</li>
+</ul>
+</li>
+<li>brak zależności:
+
+<ul>
+<li>może używać jQuery, o ile jest dostępne przy uruchomieniu</li>
+</ul>
+</li>
+</ul><h3>AngularJs</h3>
+
+<ul>
+<li>MVVM <a href="https://plus.google.com/+AngularJS/posts/aZNVhj355G2" title="G+">G+</a>
+</li>
+<li>Proste objekty js</li>
+<li>Wstrzykiwanie zależności</li>
+<li>TESTOWALNOŚĆ!</li>
+<li>Directives</li>
+<li>Programowanie deklaratywne</li>
+</ul><h3>Architektura MVVM</h3>
+
+<ul>
+<li>proste objekty js</li>
+<li>sprawdzanie wszystkich zmian po kolecji - ale object.observer nadchodzi</li>
+</ul><div class="highlight"><pre><span class="kd">function</span> <span class="nx">TodoCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$log</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// use console log</span>
+  <span class="nx">$log</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Test'</span><span class="p">);</span>
+
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">addTodo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">todos</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="nx">text</span><span class="o">:</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">todoText</span><span class="p">,</span> <span class="nx">done</span><span class="o">:</span><span class="kc">false</span><span class="p">});</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">todoText</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">remaining</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">angular</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">todos</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">todo</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">count</span> <span class="o">+=</span> <span class="nx">todo</span><span class="p">.</span><span class="nx">done</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">});</span>
+    <span class="k">return</span> <span class="nx">count</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">archive</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">oldTodos</span> <span class="o">=</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">todos</span><span class="p">;</span>
+    <span class="nx">$scope</span><span class="p">.</span><span class="nx">todos</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nx">angular</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">oldTodos</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">todo</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">todo</span><span class="p">.</span><span class="nx">done</span><span class="p">)</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">todos</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">todo</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3>Wstrzykiwanie zależności</h3>
+
+<ul>
+<li>usprawnia testowanie</li>
+<li>ładnie posumowywuje powiązania między częściami aplikacji</li>
+</ul><div class="highlight"><pre><span class="nx">$scope</span><span class="p">;</span> <span class="c1">// view model</span>
+<span class="nx">$log</span><span class="p">;</span> <span class="c1">// console: ie friendly</span>
+<span class="nx">$window</span><span class="p">;</span> <span class="c1">// testable window counter part</span>
+<span class="nx">$http</span><span class="p">;</span> <span class="c1">// http requests</span>
+<span class="c1">// and all our services</span>
+</pre></div>
+
+<h3>Directives</h3>
+
+<ul>
+<li>narzędzie do uczenia html nowych sztuczek
+
+<ul>
+<li>dowiązuje kontrolery</li>
+</ul>
+</li>
+</ul><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">ng-controller=</span><span class="s">"ProductCtrl"</span><span class="nt">&gt;</span>
+</pre></div>
+
+<ul>
+<li>pętle</li>
+</ul><div class="highlight"><pre><span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">ng-repeat=</span><span class="s">"friend in friends"</span><span class="nt">&gt;</span>
+    [{{$index + 1}}] {{friend.name}} who is {{friend.age}} yrs old.
+ <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</pre></div>
+
+<ul>
+<li>dowiązanie modelu</li>
+</ul><div class="highlight"><pre><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">ng-model=</span><span class="s">"confirmed"</span> <span class="na">ng-change=</span><span class="s">"change()"</span>
+</pre></div>
+
+<ul>
+<li>wskrzeszanie dawnych featureów</li>
+</ul><div class="highlight"><pre><span class="nt">&lt;blink&gt;</span>Click me<span class="nt">&lt;/blink&gt;</span>
+</pre></div>
+
+<ul>
+<li>Brak manipulacji DOMem w kontrolerze</li>
+</ul><h3>Programowanie deklaratywne</h3>
+
+<ul>
+<li>Czyli to co mamy w html, css a teraz też w js</li>
+<li>html: chcesz paragraf?</li>
+</ul><div class="highlight"><pre><span class="nt">&lt;p&gt;</span>Text<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+
+<ul>
+<li>css: chcesz go na czarwono?</li>
+</ul><div class="highlight"><pre><span class="nt">p</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="nb">red</span><span class="p">}</span>
+</pre></div>
+
+<ul>
+<li>js: dowiązujemy zawartość do module - co piszemy w zwykłym html</li>
+</ul><div class="highlight"><pre><span class="nt">&lt;p&gt;</span>{{modelData}}<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+
+<h3>TESTOWALNOŚĆ!</h3>
+
+<ul>
+<li>Wstrzykiwanie zależności</li>
+<li>Directives</li>
+<li>proste objekty js jako modele</li>
+</ul><div class="highlight"><pre><span class="c1">//Code:</span>
+<span class="kd">function</span> <span class="nx">PasswordCtrl</span><span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
+ <span class="err"> </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">password</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+ <span class="err"> </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">grade</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+ <span class="err">   </span><span class="kd">var</span> <span class="nx">size</span> <span class="o">=</span> <span class="nx">$scope</span><span class="p">.</span><span class="nx">password</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+ <span class="err">   </span><span class="k">if</span> <span class="p">(</span><span class="nx">size</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="p">{</span>
+ <span class="err">     </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">strength</span> <span class="o">=</span> <span class="s1">'strong'</span><span class="p">;</span>
+ <span class="err">   </span><span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">size</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+   <span class="err">   </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">strength</span> <span class="o">=</span> <span class="s1">'medium'</span><span class="p">;</span>
+   <span class="err"> </span><span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+     <span class="err"> </span><span class="nx">$scope</span><span class="p">.</span><span class="nx">strength</span> <span class="o">=</span> <span class="s1">'weak'</span><span class="p">;</span>
+   <span class="err"> </span><span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">// test:</span>
+<span class="kd">var</span> <span class="nx">scope</span> <span class="o">=</span> <span class="p">{};</span>
+
+<span class="kd">var</span> <span class="nx">pc</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PasswordCtrl</span><span class="p">(</span><span class="nx">scope</span><span class="p">);</span>
+<span class="nx">pc</span><span class="p">.</span><span class="nx">password</span><span class="p">(</span><span class="s1">'abc'</span><span class="p">);</span>
+<span class="nx">pc</span><span class="p">.</span><span class="nx">grade</span><span class="p">();</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">scope</span><span class="p">.</span><span class="nx">strength</span><span class="p">).</span><span class="nx">toEqual</span><span class="p">(</span><span class="s1">'weak'</span><span class="p">);</span>
+</pre></div>
+
+<h3>Wątpliwości</h3>
+
+<ul>
+<li>dla niektórych nawet deal breaker</li>
+</ul><h3>Walidatorom się to nie spodoba</h3>
+
+<ul>
+<li>niestandardowe tagi</li>
+</ul><div class="highlight"><pre><span class="nt">&lt;tabs&gt;</span>
+   <span class="nt">&lt;pane</span> <span class="na">title=</span><span class="s">"Localization"</span><span class="nt">&gt;</span>
+</pre></div>
+
+<ul>
+<li>niestandardowe atrybuty</li>
+</ul><div class="highlight"><pre><span class="nt">&lt;li</span> <span class="na">ng-repeat=</span><span class="s">"todo in todos"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">ng-model=</span><span class="s">"todoText"</span> <span class="nt">/&gt;</span>
+</pre></div>
+
+<ul>
+<li>a część z nich była specjanie usunięta z html</li>
+</ul><div class="highlight"><pre><span class="nt">&lt;blink&gt;</span>CLICK ME!<span class="nt">&lt;/blink&gt;</span>
+</pre></div>
+
+<h3>Powrót do lat 90?</h3>
+
+<ul>
+<li>angular używa własnych tagów, pozwala nam tworzyć kolejne, i oczekuje że będziemy pisać takie rzeczy:</li>
+</ul><div class="highlight"><pre><span class="nt">&lt;form</span> <span class="na">ng-submit=</span><span class="s">"addTodo()"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">ng-click=</span><span class="s">"fireAlert()"</span><span class="nt">&gt;</span>
+</pre></div>
+
+<h3>Błedne tagi</h3>
+
+<ul>
+<li>wszystkie directives</li>
+<li>dla atrybutów jest wersja z data-* or x-* </li>
+<li>dodatkowe tagi potrzebują shimów dla ie8</li>
+</ul><h3>Nie - to nasza przyszłość</h3>
+
+<ul>
+<li>web components</li>
+<li>shadow dom </li>
+</ul><p>Będą podobne api w przeglądarkach. Już teraz możemy korzystać z części możliwości - dzięki angularowi.
+A wszystko jest bezpiecznie wydzielone w scopy.</p>
+
+<h3>Shadow DOM</h3>
+
+<ul>
+<li>Uzywane wewnętrzenie przez przeglądarki do tworzenia kontrolek</li>
+<li>Wystawi te same funkcjonalności do web developerów</li>
+<li>Szkic roboczy <a href="http://www.w3.org/TR/shadow-dom/">http://www.w3.org/TR/shadow-dom/</a>
+</li>
+<li>Przyjemny opis <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/">http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/</a> </li>
+</ul><h3>Yeoman</h3>
+
+<ul>
+<li>CLI</li>
+<li>super narzędzie do tworzenia kodu</li>
+<li>wypycha zmainy z serwera do przeglądarki - bez odświerzania</li>
+</ul><h3>Testacular</h3>
+
+<ul>
+<li>Test runner</li>
+<li>Odpala testy w prawdziwych przeglądarkack</li>
+<li>Pracuje na linuxie, nie potrzebuje graficznego środowiska</li>
+<li>Build by angular team, all angular tests are on testacular</li>
+<li>Zbudowany przez team angulara, wszystkie testy angulara są oparte o testacular</li>
+<li>Pracuje z jasmine, sinon</li>
+</ul><h3>Chcecie sprawdzić?</h3>
+
+<ul>
+<li>Przygotowałem maszyne ze środowiskiem developerskim</li>
+<li>Pełna maszyna <a href="https://docs.google.com/folder/d/0Bzhquk4DfXAtYUhKNlJhb01jaEk/edit?usp=sharing">https://docs.google.com/folder/d/0Bzhquk4DfXAtYUhKNlJhb01jaEk/edit?usp=sharing</a> - oparta o ubuntu server
+
+<ul>
+<li>user: developer</li>
+<li>hasło: developer</li>
+</ul>
+</li>
+<li>Skrypt instalujący <a href="https://github.com/marcin-wosinek/angular-dev">https://github.com/marcin-wosinek/angular-dev</a>
+</li>
+</ul><h3>Jak zacząc z angularem?</h3>
+
+<ul>
+<li>Is possible to use in legacy projects</li>
+<li>Da się używać z legacy code</li>
+<li>Goes well allong with jquery</li>
+<li>Dogaduje się z jquery</li>
+<li>Istnieje projekt przepisania bootstrapowego js do angulara <a href="http://angular-ui.github.com/bootstrap/" title="angular-ui-bootstrap">angular-ui-bootstrap</a>
+</li>
+<li>They say it is possible to use it along with require.js <a href="https://github.com/elsom25/angular-requirejs-html5boilerplate-seed" title="angular-require-js">angular-require-js</a>
+</li>
+<li>Mówią że da się korzystać z require.js <a href="https://github.com/elsom25/angular-requirejs-html5boilerplate-seed" title="angular-require-js">angular-require-js</a>
+</li>
+</ul><h3>Pytania?</h3>
+
+<ul>
+<li>Jeśli twój css nie działa dobrze z ng-show i ng-hide spróbuj ui-if z angular-ui</li>
+</ul><h3>Gdzie można mnie złapać</h3>
+
+<ul>
+<li><a href="mailto:marcin.wosinek@gmail.com">marcin.wosinek@gmail.com</a></li>
+<li>#marcin.wosinek</li>
+<li>podsumowanie i linki:</li>
+<li><a href="http://marcin-wosinek.github.com/angular.meet.js">http://marcin-wosinek.github.com/angular.meet.js</a></li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/marcin-wosinek">marcin-wosinek</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
