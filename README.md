@@ -3,39 +3,38 @@
 
 ### Kim jestem?
 * Marcin Wosinak
-* 5 years experience in IT
+* 5 lat doświadczenia w IT
   * WebDev: Javascript
   * C# dev: UnitTests
-* Currently js contractor in Poznań, Poland
+* Aktualnie kontraktor w Roche
 
 ### Wy?
 
-* Who was already working with angular?
-* Who likes having unit tests?
-* Who is using yeoman?
-* Who is going to ask questions?
+* Kto już pracował z angularem?
+* Kto lubi unit testy?
+* Kto używa yeomana?
 
 ### Czym jest angular?
 
-* it's application framework
-* it's 29KB compressed and minified
- * backbone is 19KB (with underscore & backbone)
- * backbone is 32KB (with lodash & jQuery)
- * ember is 49KB
-* no dependencies:
- * can use jQuery if available on loadtime
+* framework aplikacji
+* 29KB zminimalizowany i spakowany
+ * backbone: 19KB (z underscore & backbone)
+ * backbone: 32KB (z lodash & jQuery)
+ * ember: 49KB
+* brak zależności:
+ * może używać jQuery, o ile jest dostępne przy uruchomieniu
 
 ### AngularJs
 * MVVM [G+] [1]
-* Plain js object
-* Dependency injection
-* TESTABILITY!
+* Proste objekty js
+* Wstrzykiwanie zależności
+* TESTOWALNOŚĆ!
 * Directives
-* Declarative programming
+* Programowanie deklaratywne
 
 ### Architektura MVVM
-* plain js models
-* dirty checking - but object.observer is comming
+* proste objekty js
+* sprawdzanie wszystkich zmian po kolecji - ale object.observer nadchodzi
 
 ```js
 function TodoCtrl($scope, $log) {
@@ -65,9 +64,9 @@ function TodoCtrl($scope, $log) {
 }
 ```
 
-### Dependency injection
-* increase testablity
-* nice sumarize interconnections between parts of aplication
+### Wstrzykiwanie zależności
+* usprawnia testowanie
+* ładnie posumowywuje powiązania między częściami aplikacji
 
 ```js
 $scope; // view model
@@ -78,14 +77,14 @@ $http; // http requests
 ```
 
 ### Directives
-* tools to teach html new tricks
- * binding controller
+* narzędzie do uczenia html nowych sztuczek
+ * dowiązuje kontrolery
 
 ```html
 <div ng-controller="ProductCtrl">
 ```
 
- * loops
+ * pętle
 
 ```html
 <ul>
@@ -95,44 +94,44 @@ $http; // http requests
 </ul>
 ```
 
- * binding models
+ * dowiązanie modelu
 
 ```html
 <input type="checkbox" ng-model="confirmed" ng-change="change()"
 ```
 
-* or bing back old ones
+* wskrzeszanie dawnych featureów
 
 ```html
 <blink>Click me</blink>
 ```
 
-* No dom manipulation in controler!
+* Brak manipulacji DOMem w kontrolerze
 
 ### Programowanie deklaratywne
-* What we have in html, css now is in js as well
-* html: want paragraph?
+* Czyli to co mamy w html, css a teraz też w js
+* html: chcesz paragraf?
 
 ```html
 <p>Text</p>
 ```
 
-* css: want it red?
+* css: chcesz go na czarwono?
 
 ```css
 p { color: red}
 ```
 
-* js: what it bind to model - we are writing in pure html
+* js: dowiązujemy zawartość do module - co piszemy w zwykłym html
 
 ```html
 <p>{{modelData}}</p>
 ```
 
 ### TESTOWALNOŚĆ!
-* Dependency injection
+* Wstrzykiwanie zależności
 * Directives
-* simple plain old js objects as models
+* proste objekty js jako modele
 
 ```js
 //Code:
@@ -162,31 +161,31 @@ expect(scope.strength).toEqual('weak');
 ```
 
 ### Wątpliwości
-* for some even deal breakers
+* dla niektórych nawet deal breaker
 
 ### Walidatorom się to nie spodoba
-* those tags are invalide
+* niestandardowe tagi
 
 ```html
 <tabs>
    <pane title="Localization">
 ```
 
-* those atributs are invalide
+* niestandardowe atrybuty
 
 ```html
 <li ng-repeat="todo in todos">
 <input type="text" ng-model="todoText" />
 ```
 
-* and this little guy was purpouse fully removed from html
+* a część z nich była specjanie usunięta z html
 
 ```html
 <blink>CLICK ME!</blink>
 ```
 
 ### Powrót do lat 90?
-* angular uses proprietery tags, allow us to create own, and expect us to write stuff like this:
+* angular używa własnych tagów, pozwala nam tworzyć kolejne, i oczekuje że będziemy pisać takie rzeczy:
 
 ```html
 <form ng-submit="addTodo()">
@@ -194,54 +193,61 @@ expect(scope.strength).toEqual('weak');
 ```
 
 ### Błedne tagi
-* all directives: tags and attributes
-* for attributes there is data-\* or x-\* version 
-* tag directives needs shim for ie8
+* wszystkie directives
+* dla atrybutów jest wersja z data-\* or x-\* 
+* dodatkowe tagi potrzebują shimów dla ie8
 
 ### Nie - to nasza przyszłość
 * web components
 * shadow dom 
 
-Will be native apis. Now we can get some of benefits with angular.
-All is safly separeted into scopes.
+Będą podobne api w przeglądarkach. Już teraz możemy korzystać z części możliwości - dzięki angularowi.
+A wszystko jest bezpiecznie wydzielone w scopy.
 
 ### Shadow DOM
-* Used by browsers internally to create controls
-* Will expose the same featres to web devs
-* In working draft http://www.w3.org/TR/shadow-dom/
-* Nice overview http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/ 
+* Uzywane wewnętrzenie przez przeglądarki do tworzenia kontrolek
+* Wystawi te same funkcjonalności do web developerów
+* Szkic roboczy http://www.w3.org/TR/shadow-dom/
+* Przyjemny opis http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/ 
+
 
 ### Yeoman
 * CLI
-* cool tool to creating code
-* push changes form server to broswer - no refreshing
+* super narzędzie do tworzenia kodu
+* wypycha zmainy z serwera do przeglądarki - bez odświerzania
 
 ### Testacular
 * Test runner
-* Runs tests in reall browsers
-* Works on linux, don't need graphic env
+* Odpala testy w prawdziwych przeglądarkack
+* Pracuje na linuxie, nie potrzebuje graficznego środowiska
 * Build by angular team, all angular tests are on testacular
-* Works with jasmine, sinon
+* Zbudowany przez team angulara, wszystkie testy angulara są oparte o testacular
+* Pracuje z jasmine, sinon
 
 ### Chcecie sprawdzić?
-* I've prepared vbox for you with dev env
-* Full machine https://docs.google.com/folder/d/0Bzhquk4DfXAtYUhKNlJhb01jaEk/edit?usp=sharing - based on ubuntu server
-* Install script https://github.com/marcin-wosinek/angular-dev
+* Przygotowałem maszyne ze środowiskiem developerskim
+* Pełna maszyna https://docs.google.com/folder/d/0Bzhquk4DfXAtYUhKNlJhb01jaEk/edit?usp=sharing - oparta o ubuntu server
+ * user: developer
+ * hasło: developer
+* Skrypt instalujący https://github.com/marcin-wosinek/angular-dev
 
 ### Jak zacząc z angularem?
 * Is possible to use in legacy projects
+* Da się używać z legacy code
 * Goes well allong with jquery
-* There is a project to rewrite bootstrap js to angular directives [angular-ui-bootstrap] [2]
+* Dogaduje się z jquery
+* Istnieje projekt przepisania bootstrapowego js do angulara [angular-ui-bootstrap] [2]
 * They say it is possible to use it along with require.js [angular-require-js] [3]
+* Mówią że da się korzystać z require.js [angular-require-js] [3]
 
 ### Pytania?
-* If our css doesn't go well with ng-show and ng-hide give try with ui-if from angular-ui
+* Jeśli twój css nie działa dobrze z ng-show i ng-hide spróbuj ui-if z angular-ui
 
 ### Gdzie można mnie złapać
 * marcin.wosinek@gmail.com
 * \#marcin.wosinek
-* write up and links:
-* http://marcin-wosinek.github.com/angular.berlin.js
+* podsumowanie i linki:
+* http://marcin-wosinek.github.com/angular.meet.js
 
 [1]: https://plus.google.com/+AngularJS/posts/aZNVhj355G2   "G+"
 [2]: http://angular-ui.github.com/bootstrap/   "angular-ui-bootstrap"
